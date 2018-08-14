@@ -6,7 +6,7 @@ session_start();
 
 include("../view/header.php");
 
-$title = "Developpeuse PHP";
+$title = "Blog";
 
 ?>
 

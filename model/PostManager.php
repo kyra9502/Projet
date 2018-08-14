@@ -17,6 +17,46 @@ class PostManager extends Manager
         return $articles;
     }
 
+    public function showArticle($idArticle)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare("SELECT id, user_id, title, content, edit_author, image, DATE_FORMAT(post_date, '%d-%m-%Y ') AS post_date  FROM post WHERE id = ?");
+        $req->execute(array($idArticle));
+        $article = $req->fetch();
+
+        return $article;
+    }
+
+    public function getAuthor($idArticle)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare("SELECT post.user_id, post.id, user.username FROM post RIGHT JOIN user ON post.user_id = user.id WHERE post.id = ?");
+        $req->execute(array($idArticle));
+        $author = $req->fetch();
+
+        return $author;
+    }
+
+    public function getComments($idArticle)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare("SELECT post_id, author, content, DATE_FORMAT(comment_date, '%d-%m-%Y à %Hh%i') AS comment_date, authorized FROM comment WHERE post_id = ? ORDER BY comment_date ASC");
+        $req->execute(array($idArticle));
+        $comments = $req->fetchAll();
+
+        return $comments;
+    }
+
+    public function postComment($idArticle, $authorComment, $content)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('INSERT INTO comment (post_id, author, content, comment_date, authorized) VALUES(?, ?, ?, NOW(), 0)');
+        $newComment = $req->execute(array($idArticle, $authorComment, $content));
+
+        return $newComment;
+    }
+
+
 
 
 
