@@ -35,7 +35,7 @@ $_SESSION['articleSecure'] = bin2hex(random_bytes(32));
                         <p style="font-size: 1em">Edité par <?= isset($article['edit_author'])? $article['edit_author'] : '' ?> </p>
                     <div>
                         <br/><label for="content">Contenu</label><br />
-                        <textarea id="articleContent" class="form-control" name="articleContent" rows="10"><?= isset($article['content'])? nl2br(htmlentities($article['content'])) : 'void' ?></textarea>
+                        <textarea id="articleContent" class="form-control" name="articleContent" rows="10"><?= isset($article['content'])? nl2br(strip_tags($article['content'])) : 'void' ?></textarea>
                     </div></br>
                     <div>
                         <input type="submit" style="color:black" />

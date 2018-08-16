@@ -1,5 +1,11 @@
 <?php
 // Check for empty fields
+
+
+$name = strip_tags(htmlspecialchars($_POST['name']));
+$email_address = strip_tags(htmlspecialchars($_POST['email']));
+$message = strip_tags(htmlspecialchars($_POST['message']));
+
 if (empty($_POST['name']) ||
 empty($_POST['email']) ||
 empty($_POST['message']) ||
@@ -7,10 +13,6 @@ empty($_POST['message']) ||
     echo "No arguments Provided!";
     return false;
 }
-
-$name = strip_tags(htmlspecialchars($_POST['name']));
-$email_address = strip_tags(htmlspecialchars($_POST['email']));
-$message = strip_tags(htmlspecialchars($_POST['message']));
 
 // Create the email and send the message
 $to = 'pauline9502@live.fr'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
