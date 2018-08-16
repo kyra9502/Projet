@@ -16,13 +16,13 @@ $_SESSION['userSecure'] = bin2hex(random_bytes(32));
                 <h1>Enregistrement</h1>
                 <p>
                     <form action="newUser.php" method="post">
-                        <p>Pseudo : <br /><input type="text" name="username" id="username" /></p>
-                        <p>Mot de passe: <br /><input type="password" name="password" id="password"/></p>
-                        <p>Confirmation du Mot de passe :<br /><input type="password" name="password_check" id="password_check"/></p>
-                        <p>Adresse Mail : <br /><input type="text" name="email"  id="email_user" /></p>
-                        <input type="submit" name="submit" value="S'enregistrer" id="button"/>
-                        <input type="hidden" name="userSecure" id="userSecure" value="<?php echo addslashes($_SESSION['userSecure']); ?>" />
-                        <p><a href="connexion.php" class="return_index">Retour</a></p>
+                        <p>Pseudo : <br /><input type="text" style="color:black" name="username" id="username" /></p>
+                        <p>Mot de passe: <br /><input type="password" style="color:black" name="password" id="password"/></p>
+                        <p>Confirmation du Mot de passe :<br /><input type="password" style="color:black" name="password_check" id="password_check"/></p>
+                        <p>Adresse Mail : <br /><input type="text" name="email"   style="color:black"id="email_user" /></p>
+                        <input type="submit" name="submit" value="S'enregistrer" style="color:black" id="button"/>
+                        <input type="hidden" name="userSecure" id="userSecure" value="<?php echo addslashes($_SESSION['userSecure']); ?>" /></br></br>
+                        <p><a href="connexion.php" style="color:black" class="return_index">Retour</a></p>
                     </form>
                 </p>
             </div>

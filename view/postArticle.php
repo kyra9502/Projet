@@ -29,18 +29,18 @@ $_SESSION['articleNewSecure'] = bin2hex(random_bytes(32));
                 <form method="post" class="text-center form-group" action="newArticle.php" method="post">
                     <div>
                         <label for="title">Titre</label><br />
-                        <input type="text" id="articleTitle" name="articleTitle" size="50" />
+                        <input type="text" style="color:black" id="articleTitle" name="articleTitle" size="50" />
                     </div></br>
                     <div>
                         <label for="content">Contenu</label><br />
-                        <textarea id="articleContent" class="form-control" name="articleContent" rows="10"></textarea>
+                        <textarea id="articleContent" style="color:black" class="form-control" name="articleContent" rows="10"></textarea>
                     </div></br>
                     <div>
-                        <input type="submit" />
+                        <input type="submit" style="color:black"/>
                         <input type="hidden" name="articleNewSecure" id="articleNewSecure" value="<?php echo $_SESSION['articleNewSecure']; ?>" />
                     </div>
                 </form>
-                <p><a href="adminPanel.php" class="return_index">Retour à l'administration</a></p>
+                <p><a href="adminPanel.php" style="color:black" class="return_index">Retour à l'administration</a></p>
             </div>
         </div>
     </div>
