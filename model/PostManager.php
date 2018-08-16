@@ -57,7 +57,33 @@ class PostManager extends Manager
     }
 
 
+    public function postArticle($userId, $articleTitle, $articleContent)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('INSERT INTO post (user_id, title, content, post_date) VALUES (?, ?, ?, NOW())');
+        $newArticle = $req->execute(array($userId, $articleTitle, $articleContent));
 
+        return $newArticle;
+    }
+
+    public function updateArticle($updateTitle, $updateContent, $updateAuthor, $idArticle)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE post SET title = :title, content = :content, edit_author = :edit_author, post_date = NOW() WHERE id = :id');
+        $req->execute([
+                "title" => $updateTitle,
+                "content" => $updateContent,
+                "edit_author" => $updateAuthor,
+                "id" => $idArticle
+        ]);
+    }
+
+    public function deleteArticle($idArticle)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM post WHERE id = ?');
+        $req->execute(array($idArticle));
+    }
 
 
 
