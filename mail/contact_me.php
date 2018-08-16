@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+
+
+$token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+
+$_SESSION['token'] = $token;
+
 // Check for empty fields
 if (empty(htmlspecialchars($_POST['name'])) ||
 empty(htmlspecialchars($_POST['email'])) ||
