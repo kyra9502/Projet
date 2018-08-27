@@ -53,7 +53,15 @@ $_SESSION['articleSecure'] = bin2hex(random_bytes(32));
         </div>
     </div>
 </section>
-
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=aso469ns9mievqluukde8axzg7g1m0ttxwi0rwjm2gkq1fz3"></script> 
+<script> 
+    tinymce.init({ 
+        selector:'textarea', 
+        forced_root_block : '', 
+        force_br_newlines : true, 
+        force_p_newlines : false, 
+    }); 
+</script>
 <?php
 unset($_SESSION['updateMessage']);
 
