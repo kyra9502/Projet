@@ -31,11 +31,11 @@ $_SESSION['connexionSecure'] = bin2hex(random_bytes(32));
                     <?php
                     
                     if (isset($_SESSION['errorMessage'])) {
-                        echo $_SESSION['errorMessage'];
+                        print_r($_SESSION['errorMessage']);
                         unset($_SESSION['errorMessage']);
                     }
                     if (isset($_SESSION['userMessage'])) {
-                        echo $_SESSION['userMessage'];
+                        print_r($_SESSION['userMessage']);
                         unset($_SESSION['userMessage']);
                     }
                     ?>
@@ -43,7 +43,7 @@ $_SESSION['connexionSecure'] = bin2hex(random_bytes(32));
                     <p>Pseudo : <br /><input type="text" name="username" id="username" /></p>
                     <p>Mot de passe: <br /><input type="password" name="password" id="password"/></p>
                     <input type="submit" value="Se connecter" id="button"/>
-                    <input type="hidden" name="connexionSecure" id="connexionSecure" value="<?php echo $_SESSION['connexionSecure']; ?>" />
+                    <input type="hidden" name="connexionSecure" id="connexionSecure" value="<?php print_r($_SESSION['connexionSecure']); ?>" />
                     <br /><br />
                     <p><a href="register.php">Nouveau compte</a></p>
                 </form>
