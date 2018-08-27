@@ -4,7 +4,7 @@ require('../controller/controller.php');
 
 
 if (isset ($_GET['id']){
-    $id= htmlentities($_GET['id']);
+    $id= html_escape($_GET['id']);
 }else{
     $id = 0;
 }
@@ -12,7 +12,7 @@ if (isset ($_GET['id']){
 if (htmlspecialchars($_POST['commentSecure'])) {
     if (empty(htmlspecialchars($_SESSION['commentSecure']))) {
         echo "Une erreur s'est produite lors de l'envoi de votre commentaire.";
-        echo '<br /><a href="article.php?id='.htmlentities($_GET['id']).'">Retour à l\'article</a>';
+        echo '<br /><a href="article.php?id='.html_escape($_GET['id']).'">Retour à l\'article</a>';
         return;
     }
     if (htmlspecialchars($_SESSION['commentSecure']) !== htmlspecialchars($_POST['commentSecure'])) {
