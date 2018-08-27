@@ -39,7 +39,7 @@ $_SESSION['articleSecure'] = bin2hex(random_bytes(32));
                     </div></br>
                     <div>
                         <input type="submit" style="color:black" />
-                        <input type="hidden"  name="articleSecure" id="articleSecure" value="<?php echo $_SESSION['articleSecure']; ?>" />
+                        <input type="hidden"  name="articleSecure" id="articleSecure" value="<?php print_r($_SESSION['articleSecure']); ?>" />
                     </div>
                 </form>
                 <div class="row">
@@ -53,7 +53,10 @@ $_SESSION['articleSecure'] = bin2hex(random_bytes(32));
         </div>
     </div>
 </section>
+<<<<<<< HEAD
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=aso469ns9mievqluukde8axzg7g1m0ttxwi0rwjm2gkq1fz3"></script> 
+=======
+>>>>>>> failles
 <script> 
     tinymce.init({ 
         selector:'textarea', 
