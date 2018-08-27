@@ -8,7 +8,7 @@ require('../controller/controller.php');
 if (htmlspecialchars($_POST['commentSecure'])) {
     if (empty(htmlspecialchars($_SESSION['commentSecure']))) {
         echo "Une erreur s'est produite lors de l'envoi de votre commentaire.";
-        echo '<br /><a href="article.php?id='.htmlspecialchars($_GET['id']).'">Retour à l\'article</a>';
+        //echo '<br /><a href="article.php?id='.htmlspecialchars($_GET['id']).'">Retour à l\'article</a>';
         return;
     }
     if (htmlspecialchars($_SESSION['commentSecure']) !== htmlspecialchars($_POST['commentSecure'])) {
