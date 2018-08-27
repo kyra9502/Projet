@@ -19,7 +19,7 @@ foreach ($articles as $article) :
     $id = $article['id'];
     ?>
 
-    
+    <!-- Blog Section -->
     <section id="portfolio">
         <div class="container">
             <div class="row">
@@ -37,7 +37,7 @@ foreach ($articles as $article) :
         <div class="row">
                 <div class="col-lg-12 text-center">
                         <?php isset($article['image']) ? $image= $article['image'] : $image= '' ?>
-                        <p><?php print_r('<img src="../img/'.$image.'" class="img-responsive text-center""/>');?> </p>
+                        <p><?php echo'<img src="../img/'.$image.'" class="img-responsive text-center""/>';?> </p>
                 </div>
             </div>
     </section>

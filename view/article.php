@@ -31,7 +31,7 @@ $_SESSION['commentSecure'] = htmlspecialchars(bin2hex(random_bytes(32)));
         <div class="row">
                 <div class="img-responsive center">
                         <?php isset($article['image']) ? htmlspecialchars($image= $article['image']) : $image= '' ?>
-                        <p><?php print_r('<img src="../img/'.$image.'" class="img-responsive text-center""/>');?> </p>
+                        <p><?php echo'<img src="../img/'.$image.'" class="img-responsive text-center""/>';?> </p>
                 </div>
         </div></br></br>
         <div class="row">
@@ -70,7 +70,7 @@ $_SESSION['commentSecure'] = htmlspecialchars(bin2hex(random_bytes(32)));
                         </div></br>
                         <div>
                             <input type="submit" />
-                            <input type="hidden" name="commentSecure" id="commentSecure" value="<?php print_r($_SESSION['commentSecure']); ?>" />
+                            <input type="hidden" name="commentSecure" id="commentSecure" value="<?php echo $_SESSION['commentSecure']; ?>" />
                         </div>
                     </form>
                 </div>
