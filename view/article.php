@@ -15,7 +15,7 @@ $article = showArticle($_GET['id']);
 $author = getAuthor($_GET['id']);
 $comments = getComments($_GET['id']);
 
-$_SESSION['commentSecure'] = bin2hex(random_bytes(32));
+$_SESSION['commentSecure'] = htmlspecialchars(bin2hex(random_bytes(32)));
 ?>
 
 
@@ -30,7 +30,7 @@ $_SESSION['commentSecure'] = bin2hex(random_bytes(32));
         </div>
         <div class="row">
                 <div class="img-responsive center">
-                        <?php isset($article['image']) ? $image= $article['image'] : $image= '' ?>
+                        <?php isset($article['image']) ? htmlspecialchars($image= $article['image']) : $image= '' ?>
                         <p><?php echo'<img src="../img/'.$image.'" class="img-responsive text-center""/>';?> </p>
                 </div>
         </div></br></br>
