@@ -39,7 +39,7 @@ $_SESSION['articleSecure'] = bin2hex(random_bytes(32));
                     </div></br>
                     <div>
                         <input type="submit" style="color:black" />
-                        <input type="hidden"  name="articleSecure" id="articleSecure" value="<?php echo $_SESSION['articleSecure']; ?>" />
+                        <input type="hidden"  name="articleSecure" id="articleSecure" value="<?php print_r($_SESSION['articleSecure']); ?>" />
                     </div>
                 </form>
                 <div class="row">
