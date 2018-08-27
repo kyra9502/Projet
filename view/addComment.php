@@ -14,22 +14,25 @@ function get_escape($field) {
 
 if (htmlspecialchars($_POST['commentSecure'])) {
     if (empty(htmlspecialchars($_SESSION['commentSecure']))) {
-        echo "Une erreur s'est produite lors de l'envoi de votre commentaire.";
-        echo '<br /><a href="article.php?id='. get_escape($_GET['id']).'">Retour à l\'article</a>';
-        return;
+?>
+
+        <p>Une erreur s'est produite lors de l'envoi de votre commentaire.</p></br>
+        <p><a href=<?='"article.php?id=' . get_escape($_GET["id"]).'" '?> >Retour à l\'article</a></p>
+<?php        
     }
-    if (htmlspecialchars($_SESSION['commentSecure']) !== htmlspecialchars($_POST['commentSecure'])) {
+    elseif (htmlspecialchars($_SESSION['commentSecure']) !== htmlspecialchars($_POST['commentSecure'])) {
         echo "Une erreur s'est produite lors de l'envoi de votre commentaire.";
         echo '<br /><a href="article.php?id='.htmlspecialchars($_GET['id']).'">Retour à l\'article</a>';
-        return;
+        
     }
-    if (empty(htmlspecialchars($_POST['authorComment'])) || empty(htmlspecialchars($_POST['content']))) {
+    elseif (empty(htmlspecialchars($_POST['authorComment'])) || empty(htmlspecialchars($_POST['content']))) {
         echo "Une erreur s'est produite lors de l'envoi de votre commentaire.";
         echo '<br /><a href="article.php?id='.htmlspecialchars($_GET['id']).'">Retour à l\'article</a>';
-        return;
+        
     }
     newComment(htmlspecialchars($_GET['id']), htmlspecialchars($_POST['authorComment']), htmlspecialchars($_POST['content']));
     header('Location: article.php?id='.htmlspecialchars($_GET['id']));
 } else {
     header('Location: article.php?id='.htmlspecialchars($_GET['id']));
 }
+?>
