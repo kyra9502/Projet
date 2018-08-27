@@ -2,34 +2,27 @@
 session_start();
 require('../controller/controller.php');
 
-session_start();
 
 
-$token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
 
-$_SESSION['token'] = $token;
-/**
-* Security for Comment Form, adding Comment
-*
- */
-if (isset($_POST['commentSecure'])) {
-    if (empty($_SESSION['commentSecure'])) {
+if (htmlspecialchars($_POST['commentSecure'])) {
+    if (empty(htmlspecialchars($_SESSION['commentSecure']))) {
         echo "Une erreur s'est produite lors de l'envoi de votre commentaire.";
-        echo '<br /><a href="article.php?id='.$_GET['id'].'">Retour à l\'article</a>';
+        echo '<br /><a href="article.php?id='.htmlspecialchars($_GET['id']).'">Retour à l\'article</a>';
         return;
     }
-    if ($_SESSION['commentSecure'] !== $_POST['commentSecure']) {
+    if (htmlspecialchars($_SESSION['commentSecure']) !== htmlspecialchars($_POST['commentSecure'])) {
         echo "Une erreur s'est produite lors de l'envoi de votre commentaire.";
-        echo '<br /><a href="article.php?id='.$_GET['id'].'">Retour à l\'article</a>';
+        echo '<br /><a href="article.php?id='.htmlspecialchars($_GET['id']).'">Retour à l\'article</a>';
         return;
     }
-    if (empty($_POST['authorComment']) || empty($_POST['content'])) {
+    if (empty(htmlspecialchars($_POST['authorComment'])) || empty(htmlspecialchars($_POST['content']))) {
         echo "Une erreur s'est produite lors de l'envoi de votre commentaire.";
-        echo '<br /><a href="article.php?id='.$_GET['id'].'">Retour à l\'article</a>';
+        echo '<br /><a href="article.php?id='.htmlspecialchars($_GET['id']).'">Retour à l\'article</a>';
         return;
     }
-    newComment($_GET['id'], $_POST['authorComment'], $_POST['content']);
-    header('Location: article.php?id='.$_GET['id']);
+    newComment(htmlspecialchars($_GET['id']), htmlspecialchars($_POST['authorComment']), htmlspecialchars($_POST['content']));
+    header('Location: article.php?id='.htmlspecialchars($_GET['id']));
 } else {
-    header('Location: article.php?id='.$_GET['id']);
+    header('Location: article.php?id='.htmlspecialchars($_GET['id']));
 }
