@@ -19,7 +19,7 @@ foreach ($articles as $article) :
     $id = $article['id'];
     ?>
 
-    <!-- Blog Section -->
+    
     <section id="portfolio">
         <div class="container">
             <div class="row">
