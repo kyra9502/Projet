@@ -53,10 +53,10 @@ $_SESSION['articleSecure'] = bin2hex(random_bytes(32));
         </div>
     </div>
 </section>
-<<<<<<< HEAD
+
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=aso469ns9mievqluukde8axzg7g1m0ttxwi0rwjm2gkq1fz3"></script> 
-=======
->>>>>>> failles
+
+
 <script> 
     tinymce.init({ 
         selector:'textarea', 
