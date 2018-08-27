@@ -3,16 +3,19 @@ session_start();
 require('../controller/controller.php');
 
 
-if (isset ($_GET['id']){
-    $id= html_escape($_GET['id']);
-}else{
-    $id = 0;
-}
+function get_escape($field) {
+    $value = iconv(
+      'UTF-8',
+      'UTF-8//IGNORE',
+      isset($_GET[$field]) ? $_GET[$field] : ''
+    );
+    return htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
+  }
 
 if (htmlspecialchars($_POST['commentSecure'])) {
     if (empty(htmlspecialchars($_SESSION['commentSecure']))) {
         echo "Une erreur s'est produite lors de l'envoi de votre commentaire.";
-        echo '<br /><a href="article.php?id='.html_escape($_GET['id']).'">Retour à l\'article</a>';
+        echo '<br /><a href="article.php?id='. get_escape($_GET['id']).'">Retour à l\'article</a>';
         return;
     }
     if (htmlspecialchars($_SESSION['commentSecure']) !== htmlspecialchars($_POST['commentSecure'])) {
