@@ -21,13 +21,19 @@ if (htmlspecialchars($_POST['commentSecure'])) {
 <?php        
     }
     elseif (htmlspecialchars($_SESSION['commentSecure']) !== htmlspecialchars($_POST['commentSecure'])) {
-        echo "Une erreur s'est produite lors de l'envoi de votre commentaire.";
-        echo '<br /><a href="article.php?id='.htmlspecialchars($_GET['id']).'">Retour à l\'article</a>';
+?>
+
+        <p>Une erreur s'est produite lors de l'envoi de votre commentaire.</p></br>
+        <p><a href=<?='"article.php?id=' . get_escape($_GET["id"]).'" '?> >Retour à l\'article</a></p>
+<?php       
         
     }
     elseif (empty(htmlspecialchars($_POST['authorComment'])) || empty(htmlspecialchars($_POST['content']))) {
-        echo "Une erreur s'est produite lors de l'envoi de votre commentaire.";
-        echo '<br /><a href="article.php?id='.htmlspecialchars($_GET['id']).'">Retour à l\'article</a>';
+?>
+
+        <p>Une erreur s'est produite lors de l'envoi de votre commentaire.</p></br>
+        <p><a href=<?='"article.php?id=' . get_escape($_GET["id"]).'" '?> >Retour à l\'article</a></p>
+<?php       
         
     }
     newComment(htmlspecialchars($_GET['id']), htmlspecialchars($_POST['authorComment']), htmlspecialchars($_POST['content']));
