@@ -70,7 +70,7 @@ $_SESSION['commentSecure'] = htmlspecialchars(bin2hex(random_bytes(32)));
                         </div></br>
                         <div>
                             <input type="submit" />
-                            <input type="hidden" name="commentSecure" id="commentSecure" value="<?php echo $_SESSION['commentSecure']; ?>" />
+                            <input type="hidden" name="commentSecure" id="commentSecure" value=" $_SESSION['commentSecure'] " />
                         </div>
                     </form>
                 </div>
