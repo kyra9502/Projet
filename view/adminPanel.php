@@ -68,9 +68,12 @@ if (!isset($_SESSION['user_id'])) {
 <section class="portfolio">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
+            <div class="col-lg-6 text-center">
                 <h3>Poster un article</h3>
                 <a href="postArticle.php">Poster un nouvel Article</a>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img class="img-responsive" src="../img/ecrire.jpg" alt="">
             </div>
         </div>
     </div>

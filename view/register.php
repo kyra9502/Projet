@@ -21,7 +21,7 @@ $_SESSION['userSecure'] = bin2hex(random_bytes(32));
                         <p>Confirmation du Mot de passe :<br /><input type="password" style="color:black" name="password_check" id="password_check"/></p>
                         <p>Adresse Mail : <br /><input type="text" name="email"   style="color:black"id="email_user" /></p>
                         <input type="submit" name="submit" value="S'enregistrer" style="color:black" id="button"/>
-                        <input type="hidden" name="userSecure" id="userSecure" value="<?php echo addslashes($_SESSION['userSecure']); ?>" /></br></br>
+                        <input type="hidden" name="userSecure" id="userSecure" value=<?='"' .addslashes($_SESSION['userSecure']). '"'; ?> /></br></br>
                         <p><a href="connexion.php" style="color:black" class="return_index">Retour</a></p>
                     </form>
                 </p>
