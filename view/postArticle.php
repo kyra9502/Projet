@@ -9,7 +9,9 @@ include("../view/header.php");
 // Check Administrator state
 if ($_SESSION['validated'] != 1) {
     $_SESSION['errorMessage'] = 'Vous n\'avez pas les droits suffisants pour accéder à la création d\'article.';
-    echo $_SESSION['errorMessage'];
+    ?>
+        <?= $_SESSION['errorMessage']; ?>
+    <?php
     return;
 }
 $_SESSION['articleNewSecure'] = bin2hex(random_bytes(32));
@@ -37,7 +39,7 @@ $_SESSION['articleNewSecure'] = bin2hex(random_bytes(32));
                     </div></br>
                     <div>
                         <input type="submit" style="color:black"/>
-                        <input type="hidden" name="articleNewSecure" id="articleNewSecure" value="<?php echo $_SESSION['articleNewSecure']; ?>" />
+                        <input type="hidden" name="articleNewSecure" id="articleNewSecure" value=<?='"' .$_SESSION['articleNewSecure'].'"'; ?> />
                     </div>
                 </form>
                 <p><a href="adminPanel.php" style="color:black" class="return_index">Retour à l'administration</a></p>
